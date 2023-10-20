@@ -10,7 +10,7 @@
     "remove": "sst remove",
     "console": "sst console",
     "typecheck": "tsc --noEmit",
-    "test": "sst bind vitest run"
+    "test": "sst bind vitest watch"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2",

@@ -1,6 +1,7 @@
 import { beforeAll, it } from "vitest";
 import { Match, Template } from "aws-cdk-lib/assertions";
-import * as RoomsApp from "../RoomsStack";
+import * as storageStackContext from "../StorageStack";
+import * as apiStackContext from "../ApiStack";
 import { initProject } from "sst/project";
 import { App, getStack } from "sst/constructs";
 
@@ -13,33 +14,46 @@ beforeAll(async () => {
   await initProject({});
   const app = new App({ mode: "deploy" });
   // WHEN
-  // Create the Database stack
-  app.stack(RoomsApp.API);
+  // Create the Storage stack
+  app.stack(storageStackContext.StorageStack);
+
+  // Create the API stack
+  app.stack(apiStackContext.ApiStack);
 
   // Wait for resources to finalize
   await app.finish();
 
   // Get the CloudFormation template of the stack
   // THEN
-  const stack = getStack(RoomsApp.API);
+  const stack = getStack(apiStackContext.ApiStack);
   template = Template.fromStack(stack);
 });
 
-it("has an API", () => {
+it("has an API Gateway", () => {
   template.hasResourceProperties("AWS::ApiGatewayV2::Api", {
-    Name: Match.stringLikeRegexp("-api$"),
-    ProtocolType: "HTTP",
+    Name: Match.stringLikeRegexp("Api"),
   });
 });
 
-it("has route 'GET /", () => {
+it("has an API Gateway route `POST /rooms`", () => {
   template.hasResourceProperties("AWS::ApiGatewayV2::Route", {
-    RouteKey: "GET /",
+    RouteKey: "POST /rooms",
   });
 });
 
-it("API has  handler", () => {
-  template.hasResourceProperties("AWS::Lambda::Function", {
-    Handler: "packages/functions/src/lambda.handler",
+it("has an API Gateway stage", () => {
+  template.hasResourceProperties("AWS::ApiGatewayV2::Stage", {
+    StageName: "$default",
+  });
+});
+
+it("outputs the API endpoint", () => {
+  template.hasOutput("ApiEndpoint", {
+    Value: {
+      "Fn::GetAtt": [
+        "ApiCD79AAA0",
+        "ApiEndpoint"
+      ]
+    }
   });
 });
