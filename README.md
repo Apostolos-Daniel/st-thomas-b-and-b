@@ -32,3 +32,11 @@ Get current aws profile used by aws cli:
 ```bash
 aws configure list
 ```
+
+## Adding Datadog
+    
+First, add the datadog-cdk-constructs-v2 package to your project:
+
+```bash
+pm add datadog-cdk-constructs-v2  
+```
