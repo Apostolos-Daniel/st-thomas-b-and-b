@@ -12,14 +12,14 @@ importers:
         specifier: ^18.2.2
         version: 18.2.2
       aws-cdk-lib:
-        specifier: 2.95.1
-        version: 2.95.1(constructs@10.2.69)
+        specifier: 2.102.0
+        version: 2.102.0(constructs@10.2.69)
       constructs:
         specifier: 10.2.69
         version: 10.2.69
       datadog-cdk-constructs-v2:
         specifier: ^1.9.0
-        version: 1.9.0(@aws-cdk/aws-lambda-python-alpha@2.101.1-alpha.0)(aws-cdk-lib@2.95.1)(constructs@10.2.69)
+        version: 1.9.0(@aws-cdk/aws-lambda-python-alpha@2.101.1-alpha.0)(aws-cdk-lib@2.102.0)(constructs@10.2.69)
       sst:
         specifier: ^2.30.2
         version: 2.30.2
@@ -104,14 +104,14 @@ packages:
     resolution: {integrity: sha512-DDt4SLdLOwWCjGtltH4VCST7hpOI5DzieuhGZsBpZ+AgJdSI2GCjklCXm0GCTwJG/SolkL5dtQXyUKgg9luBDg==}
     dev: true
 
-  /@aws-cdk/aws-apigatewayv2-alpha@2.95.1-alpha.0(aws-cdk-lib@2.95.1)(constructs@10.2.69):
+  /@aws-cdk/aws-apigatewayv2-alpha@2.95.1-alpha.0(aws-cdk-lib@2.102.0)(constructs@10.2.69):
     resolution: {integrity: sha512-01CjocOWbt5XF2aaLWXSOrWlCevmebwLUtivlRhCMpLXfpIQVwMRWbPdzZvpjcsUm5e3ptHUe9aNDZfpWEWahg==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
       aws-cdk-lib: 2.95.1
       constructs: ^10.0.0
     dependencies:
-      aws-cdk-lib: 2.95.1(constructs@10.2.69)
+      aws-cdk-lib: 2.102.0(constructs@10.2.69)
       constructs: 10.2.69
     dev: true
 
@@ -123,7 +123,7 @@ packages:
       aws-cdk-lib: 2.95.1
       constructs: ^10.0.0
     dependencies:
-      '@aws-cdk/aws-apigatewayv2-alpha': 2.95.1-alpha.0(aws-cdk-lib@2.95.1)(constructs@10.2.69)
+      '@aws-cdk/aws-apigatewayv2-alpha': 2.95.1-alpha.0(aws-cdk-lib@2.102.0)(constructs@10.2.69)
       aws-cdk-lib: 2.95.1(constructs@10.2.69)
       constructs: 10.2.69
     dev: true
@@ -136,19 +136,19 @@ packages:
       aws-cdk-lib: 2.95.1
       constructs: ^10.0.0
     dependencies:
-      '@aws-cdk/aws-apigatewayv2-alpha': 2.95.1-alpha.0(aws-cdk-lib@2.95.1)(constructs@10.2.69)
+      '@aws-cdk/aws-apigatewayv2-alpha': 2.95.1-alpha.0(aws-cdk-lib@2.102.0)(constructs@10.2.69)
       aws-cdk-lib: 2.95.1(constructs@10.2.69)
       constructs: 10.2.69
     dev: true
 
-  /@aws-cdk/aws-lambda-python-alpha@2.101.1-alpha.0(aws-cdk-lib@2.95.1)(constructs@10.2.69):
+  /@aws-cdk/aws-lambda-python-alpha@2.101.1-alpha.0(aws-cdk-lib@2.102.0)(constructs@10.2.69):
     resolution: {integrity: sha512-g7T4C6a9ouHVEMCOiMnYqIVI3NZLXxdc10686Fhc5BGB88Yim5cuKQw3UF753KJB9GGTSMe++YSgmIqhPqOztw==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
       aws-cdk-lib: ^2.101.1
       constructs: ^10.0.0
     dependencies:
-      aws-cdk-lib: 2.95.1(constructs@10.2.69)
+      aws-cdk-lib: 2.102.0(constructs@10.2.69)
       constructs: 10.2.69
     dev: true
 
@@ -3073,6 +3073,29 @@ packages:
     resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==}
     engines: {node: '>= 0.4'}
 
+  /aws-cdk-lib@2.102.0(constructs@10.2.69):
+    resolution: {integrity: sha512-pYcKGlshU2j7n3f8TbJ1CCrwNnLsgGd17G7p/s9njIU8xakU4tIwuNyo4Q9HHQA7aUb3enPI/afAn1A6gp7TrA==}
+    engines: {node: '>= 14.15.0'}
+    peerDependencies:
+      constructs: ^10.0.0
+    dependencies:
+      '@aws-cdk/asset-awscli-v1': 2.2.200
+      '@aws-cdk/asset-kubectl-v20': 2.1.2
+      '@aws-cdk/asset-node-proxy-agent-v6': 2.0.1
+      constructs: 10.2.69
+    dev: true
+    bundledDependencies:
+      - '@balena/dockerignore'
+      - case
+      - fs-extra
+      - ignore
+      - jsonschema
+      - minimatch
+      - punycode
+      - semver
+      - table
+      - yaml
+
   /aws-cdk-lib@2.95.1(constructs@10.2.69):
     resolution: {integrity: sha512-FQlnW3+c1j2W7hmu+QMSiWnBgbW1Lhn1ZpBQ6cwYZa97rII1zlEyTowAfzQk6szPIzUhJv5xK03nWZtvCvpAWw==}
     engines: {node: '>= 14.15.0'}
@@ -3607,7 +3630,7 @@ packages:
     resolution: {integrity: sha512-o2JlM7ydqd3Qk9CA0L4NL6mTzU2sdx96a+oOfPu8Mkl/PK51vSyoi8/rQ8NknZtk44vq15lmhAj9CIAGwgeWKw==}
     dev: true
 
-  /datadog-cdk-constructs-v2@1.9.0(@aws-cdk/aws-lambda-python-alpha@2.101.1-alpha.0)(aws-cdk-lib@2.95.1)(constructs@10.2.69):
+  /datadog-cdk-constructs-v2@1.9.0(@aws-cdk/aws-lambda-python-alpha@2.101.1-alpha.0)(aws-cdk-lib@2.102.0)(constructs@10.2.69):
     resolution: {integrity: sha512-148XjCmdSujpGmhtSY1jn/R2DG5ENxv2tlFaOX4Er1YEBuzlAK0yn5F0TpKvBiZSsz+Rsc6VVS7E36EyRHhTVw==}
     engines: {node: '>= 14.15.0'}
     peerDependencies:
@@ -3615,8 +3638,8 @@ packages:
       aws-cdk-lib: ^2.101.1
       constructs: ^10.0.5
     dependencies:
-      '@aws-cdk/aws-lambda-python-alpha': 2.101.1-alpha.0(aws-cdk-lib@2.95.1)(constructs@10.2.69)
-      aws-cdk-lib: 2.95.1(constructs@10.2.69)
+      '@aws-cdk/aws-lambda-python-alpha': 2.101.1-alpha.0(aws-cdk-lib@2.102.0)(constructs@10.2.69)
+      aws-cdk-lib: 2.102.0(constructs@10.2.69)
       constructs: 10.2.69
       loglevel: 1.8.1
     dev: true
@@ -5328,7 +5351,7 @@ packages:
       '@sls-next/lambda-at-edge':
         optional: true
     dependencies:
-      '@aws-cdk/aws-apigatewayv2-alpha': 2.95.1-alpha.0(aws-cdk-lib@2.95.1)(constructs@10.2.69)
+      '@aws-cdk/aws-apigatewayv2-alpha': 2.95.1-alpha.0(aws-cdk-lib@2.102.0)(constructs@10.2.69)
       '@aws-cdk/aws-apigatewayv2-authorizers-alpha': 2.95.1-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.95.1-alpha.0)(aws-cdk-lib@2.95.1)(constructs@10.2.69)
       '@aws-cdk/aws-apigatewayv2-integrations-alpha': 2.95.1-alpha.0(@aws-cdk/aws-apigatewayv2-alpha@2.95.1-alpha.0)(aws-cdk-lib@2.95.1)(constructs@10.2.69)
       '@aws-cdk/cloud-assembly-schema': 2.95.1

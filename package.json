@@ -14,7 +14,7 @@
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2",
-    "aws-cdk-lib": "2.95.1",
+    "aws-cdk-lib": "2.102.0",
     "constructs": "10.2.69",
     "datadog-cdk-constructs-v2": "^1.9.0",
     "sst": "^2.30.2",
