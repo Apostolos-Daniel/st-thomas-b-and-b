@@ -1,5 +1,4 @@
 import { APIGatewayProxyEvent } from "aws-lambda";
-import html from "./test.html";
 
 export async function main(event: APIGatewayProxyEvent) {
   const htmlContent = `

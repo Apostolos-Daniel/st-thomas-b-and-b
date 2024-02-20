@@ -1,20 +1,36 @@
-import { Bucket, StackContext, Table } from "sst/constructs";
+import { Bucket, StackContext, Table, Function } from "sst/constructs";
 
 export function StorageStack({ stack }: StackContext) {
-    // Create an S3 bucket
-    const bucket = new Bucket(stack, "Uploads");
+  const createSignedUrlForInstructions = new Function(
+    stack,
+    "createSignedUrlForInstructions",
+    {
+      handler: "packages/functions/src/create-signed-url-for-instructions.main",
+    }
+  );
 
-    // Create the DynamoDB table
-    const table = new Table(stack, "Rooms", {
-        fields: {
-            roomId: "string",
-            visitId: "string",
-        },
-        primaryIndex: { partitionKey: "roomId", sortKey: "visitId" },
-    });
+  // Create an S3 bucket
+  const bucketUploads = new Bucket(stack, "Uploads", {
+    blockPublicACLs: true,
+    // notifications: {
+    //   writeFunction: {
+    //     function: createSignedUrlForInstructions,
+    //     filters: [{ prefix: "final/" }, { suffix: ".html" }],
+    //   },
+    // },
+  });
+  createSignedUrlForInstructions.bind([bucketUploads]);
 
-    return {
-        bucket,
-        table,
-    };
+  // Create the DynamoDB table
+  const table = new Table(stack, "Rooms", {
+    fields: {
+      roomId: "string",
+      visitId: "string",
+    },
+    primaryIndex: { partitionKey: "roomId", sortKey: "visitId" },
+  });
+  return {
+    bucketUploads,
+    table,
+  };
 }

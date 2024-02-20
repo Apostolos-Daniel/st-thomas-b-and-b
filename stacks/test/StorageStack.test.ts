@@ -43,6 +43,13 @@ it("has a table called `Rooms` with partitionKey and sortKey set", () => {
 });
 
 it("has a bucket", () => {
-    template.hasResourceProperties("AWS::S3::Bucket", {
+    template.hasResourceProperties("AWS::S3::Bucket", {  });
+});
+
+it("has a non-publicly accessible bucket", () => {
+  template.hasResourceProperties("AWS::S3::Bucket", {
+    PublicAccessBlockConfiguration: {
+      BlockPublicAcls: true,
+    },
   });
 });

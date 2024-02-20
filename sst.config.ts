@@ -4,6 +4,7 @@ import { ApiStack } from "./stacks/ApiStack";
 import { Stack } from "sst/constructs";
 import { Datadog } from "datadog-cdk-constructs-v2";
 import { Effect, PolicyStatement } from "aws-cdk-lib/aws-iam";
+import { CronJobStack } from "./stacks/CronJobsStack";
 
 // 
 export default {
@@ -23,7 +24,7 @@ export default {
       },
     });
 
-    app.stack(StorageStack).stack(ApiStack);
+    app.stack(StorageStack).stack(CronJobStack).stack(ApiStack);
 
     await app.finish();
   }

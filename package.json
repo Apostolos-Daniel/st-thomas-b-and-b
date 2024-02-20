@@ -4,15 +4,19 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "sst dev",
+    "dev": "pnpm upload-html && sst dev",
     "build": "sst build",
     "deploy": "sst deploy",
     "remove": "sst remove",
     "console": "sst console",
     "typecheck": "tsc --noEmit",
-    "test": "sst bind vitest watch"
+    "test": "sst bind vitest watch",
+    "upload-html": "aws s3 cp packages/functions/src/test.html s3://toli-rooms-storagestack-uploadsbucketc4b27cc7-1dd0si095mnk8/original/test.html",
+    "upload-css": "aws s3 cp packages/web/css/styles.css s3://toli-rooms-storagestack-uploadsbucketc4b27cc7-1dd0si095mnk8/final/css/styles.html"
   },
   "devDependencies": {
+    "@aws-sdk/client-s3": "^3.515.0",
+    "@aws-sdk/s3-request-presigner": "^3.515.0",
     "@tsconfig/node18": "^18.2.2",
     "aws-cdk-lib": "2.102.0",
     "constructs": "10.2.69",
