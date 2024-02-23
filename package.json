@@ -4,17 +4,19 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "pnpm upload-html && sst dev",
+    "dev": "pnpm upload-html:toli && pnpm upload-css:toli && sst dev",
     "build": "sst build",
-    "deploy": "sst deploy",
+    "deploy:prod": "pnpm upload-html:prod && pnpm upload-css:prod && sst deploy --stage prod",
     "remove": "sst remove",
     "console": "sst console",
     "typecheck": "tsc --noEmit",
     "test": "sst bind vitest watch",
-    "upload-html": "aws s3 cp packages/functions/src/test.html s3://toli-rooms-storagestack-uploadsbucketc4b27cc7-1dd0si095mnk8/original/test.html",
-    "upload-css": "aws s3 cp packages/web/css/styles.css s3://toli-rooms-storagestack-uploadsbucketc4b27cc7-1dd0si095mnk8/final/css/styles.html"
+    "upload-html:toli": "aws s3 cp packages/web/instructions.html s3://toli-rooms-storagestack-uploadsbucketc4b27cc7-1dd0si095mnk8/final/instructions.html",
+    "upload-css:toli": "aws s3 cp packages/web/css/styles.css s3://toli-rooms-storagestack-uploadsbucketc4b27cc7-1dd0si095mnk8/final/css/styles.css",
+    "upload-html:prod": "aws s3 cp packages/web/instructions.html s3://prod-rooms-storagestack-uploadsbucketc4b27cc7-e79ae8vhvrvc/final/instructions.html",
+    "upload-css:prod": "aws s3 cp packages/web/css/styles.css s3://prod-rooms-storagestack-uploadsbucketc4b27cc7-e79ae8vhvrvc/final/css/styles.css"
   },
-  "devDependencies": {
+  "devDependencies": { 
     "@aws-sdk/client-s3": "^3.515.0",
     "@aws-sdk/s3-request-presigner": "^3.515.0",
     "@tsconfig/node18": "^18.2.2",

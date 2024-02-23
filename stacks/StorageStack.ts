@@ -29,6 +29,13 @@ export function StorageStack({ stack }: StackContext) {
     },
     primaryIndex: { partitionKey: "roomId", sortKey: "visitId" },
   });
+
+  // create outputs
+    stack.addOutputs({
+        BucketUploadsName: bucketUploads.bucketName,
+        TableName: table.tableName,
+    });
+
   return {
     bucketUploads,
     table,

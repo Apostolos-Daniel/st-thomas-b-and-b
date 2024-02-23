@@ -1,4 +1,4 @@
-import { Api, StackContext, use } from "sst/constructs";
+import { Api, Config, StackContext, use } from "sst/constructs";
 import { StorageStack } from "./StorageStack";
 //import { Datadog } from "datadog-cdk-constructs-v2";
 
@@ -7,8 +7,13 @@ export function ApiStack({ stack }: StackContext) {
   const { table, bucketUploads } = use(StorageStack);
 
   // Create the API
+  const customDomain = process.env.SST_STAGE == "prod" ? "rooms.stay-in-athens.com" : `${process.env.SST_STAGE}.stay-in-athens.com`;
+
+  const ST_THOMAS_B_AND_B_INSTRUCTIONS_SECRET_BASE64 = new Config.Secret(stack, "ST_THOMAS_B_AND_B_INSTRUCTIONS_SECRET_BASE64");
+  const ST_THOMAS_B_AND_B_INSTRUCTIONS_STEP_1 = new Config.Secret(stack, "ST_THOMAS_B_AND_B_INSTRUCTIONS_STEP_1");
+  const ST_THOMAS_B_AND_B_INSTRUCTIONS_STEP_3= new Config.Secret(stack, "ST_THOMAS_B_AND_B_INSTRUCTIONS_STEP_3");
   const api = new Api(stack, "Api", {
-    customDomain: "rooms.stay-in-athens.com",
+    customDomain: customDomain,
     defaults: {
       function: {
         bind: [table],
@@ -29,7 +34,7 @@ export function ApiStack({ stack }: StackContext) {
       "GET /instructions": {
         function: {
           handler: "packages/functions/src/instructions.main",
-          bind: [bucketUploads],
+          bind: [bucketUploads, ST_THOMAS_B_AND_B_INSTRUCTIONS_SECRET_BASE64, ST_THOMAS_B_AND_B_INSTRUCTIONS_STEP_1, ST_THOMAS_B_AND_B_INSTRUCTIONS_STEP_3],
         },
       },
       "POST /rooms": "packages/functions/src/create.main",
