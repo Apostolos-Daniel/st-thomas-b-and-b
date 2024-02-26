@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  deploy_prod:
     permissions:
       id-token: write
       contents: read
@@ -47,4 +47,4 @@ jobs:
       #   run: pnpm test:run
 
       - name: Deploy
-        run: pnpm deploy
+        run: pnpm run deploy
