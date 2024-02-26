@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "pnpm upload-html:toli && pnpm upload-css:toli && sst dev",
     "build": "sst build",
-    "deploy:prod": "sst deploy --stage prod",
+    "deploy": "sst deploy",
     "remove": "sst remove",
     "console": "sst console",
     "typecheck": "tsc --noEmit",
