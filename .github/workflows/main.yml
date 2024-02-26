@@ -8,6 +8,9 @@ on:
 jobs:
   setup_and_tests:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
     env:
       SST_STAGE: test
     steps:
