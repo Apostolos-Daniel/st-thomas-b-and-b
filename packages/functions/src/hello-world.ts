@@ -1,6 +1,6 @@
 import { APIGatewayProxyEvent } from "aws-lambda";
 
-export async function datadog(main(event: APIGatewayProxyEvent) {
+export async function main(event: APIGatewayProxyEvent) {
   const htmlContent = `
     <html>
       <head><title>Page Title</title></head>
@@ -16,4 +16,4 @@ export async function datadog(main(event: APIGatewayProxyEvent) {
     headers: { "Content-Type": "text/html" },
     body: htmlContent,
   };
-});
+}
