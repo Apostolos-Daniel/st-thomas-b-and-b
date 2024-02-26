@@ -24,41 +24,19 @@ jobs:
             role-to-assume: arn:aws:iam::643476110649:role/github-ci-role
             aws-region: us-east-1
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-
       - uses: pnpm/action-setup@v3
-        name: Install pnpm
+        name: Setup pnpm
         with:
-          version: 8
-          run_install: false
-  
-      # - name: Get pnpm store directory
-      #   shell: bash
-      #   run: |
-      #     echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
-  
-      # - uses: actions/cache@v3
-      #   name: Setup pnpm cache
-      #   with:
-      #     path: ${{ env.STORE_PATH }}
-      #     key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-      #     restore-keys: |
-      #       ${{ runner.os }}-pnpm-store-
-  
-      - name: Install dependencies
-        run: pnpm install
+          version: latest
+          run_install: |
+            - recursive: true
+              args: [--no-frozen-lockfile]
 
       - name: Check types
         run: pnpm typecheck
-
-      - name: Build app
-        run: pnpm build
 
       - name: Run tests
         run: pnpm test:run
 
       - name: Deploy
-        run: pnpm deploy:prod
+        run: pnpm deploy
