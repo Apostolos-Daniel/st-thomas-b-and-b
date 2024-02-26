@@ -13,6 +13,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Assume role using OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+            role-to-assume: arn:aws:iam::643476110649:role/github-ci-role
+            aws-region: us-east-1
+
       # Setup pnpm and cache dependencies
       - uses: pnpm/action-setup@v3
         name: Install pnpm
