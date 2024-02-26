@@ -20,8 +20,8 @@ jobs:
       - name: Assume role using OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
-            role-to-assume: arn:aws:iam::643476110649:role/github-ci-role
-            aws-region: us-east-1
+          role-to-assume: arn:aws:iam::643476110649:role/github-ci-role
+          aws-region: us-east-1
 
       # Setup pnpm and cache dependencies
       - uses: pnpm/action-setup@v3
@@ -29,11 +29,6 @@ jobs:
         with:
           version: 8
           run_install: false
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '20'
-          cache: 'pnpm'
 
       - name: Get pnpm store directory
         shell: bash
@@ -50,7 +45,7 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-        
+
       - name: Types
         run: npx sst types
 
@@ -81,8 +76,8 @@ jobs:
       - name: Assume role using OIDC
         uses: aws-actions/configure-aws-credentials@v4
         with:
-            role-to-assume: arn:aws:iam::643476110649:role/github-ci-role
-            aws-region: us-east-1
-              
+          role-to-assume: arn:aws:iam::643476110649:role/github-ci-role
+          aws-region: us-east-1
+
       - name: Deploy
         run: pnpm run deploy
