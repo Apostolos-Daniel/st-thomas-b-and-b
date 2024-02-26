@@ -1,5 +1,6 @@
 import { beforeAll, it } from "vitest";
 import { Match, Template } from "aws-cdk-lib/assertions";
+import * as aws_cdk_lib from "aws-cdk-lib";
 import * as stackContext from "../StorageStack";
 import { initProject } from "sst/project";
 import { App, getStack } from "sst/constructs";
@@ -22,7 +23,7 @@ beforeAll(async () => {
   // Get the CloudFormation template of the stack
   // THEN
   const stack = getStack(stackContext.StorageStack);
-  template = Template.fromStack(stack);
+  template = Template.fromStack(stack as unknown as aws_cdk_lib.Stack);
 });
 
 it("has a table called `Rooms` with partitionKey and sortKey set", () => {

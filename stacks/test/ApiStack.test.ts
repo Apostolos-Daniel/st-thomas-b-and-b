@@ -1,4 +1,5 @@
 import { beforeAll, it } from "vitest";
+import * as aws_cdk_lib from "aws-cdk-lib";
 import { Match, Template } from "aws-cdk-lib/assertions";
 import * as storageStackContext from "../StorageStack";
 import * as apiStackContext from "../ApiStack";
@@ -26,7 +27,7 @@ beforeAll(async () => {
   // Get the CloudFormation template of the stack
   // THEN
   const stack = getStack(apiStackContext.ApiStack);
-  template = Template.fromStack(stack);
+  template = Template.fromStack(stack as unknown as aws_cdk_lib.Stack);
 });
 
 it("has an API Gateway", () => {
