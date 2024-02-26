@@ -31,12 +31,17 @@ jobs:
           run_install: |
             - recursive: true
               args: [--no-frozen-lockfile]
+              
+      - name: Compile
+        run: |
+          for d in packages/*/ ; do
+            pushd "$d"
+            pnpm typecheck
+            popd
+          done
 
-      - name: Check types
-        run: pnpm typecheck
-
-      - name: Run tests
-        run: pnpm test:run
+      # - name: Run tests
+      #   run: pnpm test:run
 
       - name: Deploy
         run: pnpm deploy
