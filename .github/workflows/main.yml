@@ -11,6 +11,8 @@ jobs:
       id-token: write
       contents: read
     runs-on: ubuntu-latest
+    env:
+      SST_STAGE: prod
 
     steps:
       - name: Checkout code
@@ -56,7 +58,7 @@ jobs:
         run: pnpm build
 
       - name: Run tests
-        run: npm test
+        run: pnpm test:run
 
       - name: Deploy
         run: pnpm deploy:prod

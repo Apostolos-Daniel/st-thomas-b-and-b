@@ -11,6 +11,7 @@
     "console": "sst console",
     "typecheck": "tsc --noEmit",
     "test": "sst bind vitest watch",
+    "test:run": "sst bind vitest run",
     "upload-html:toli": "aws s3 cp packages/web/instructions.html s3://toli-rooms-storagestack-uploadsbucketc4b27cc7-1dd0si095mnk8/final/instructions.html",
     "upload-css:toli": "aws s3 cp packages/web/css/styles.css s3://toli-rooms-storagestack-uploadsbucketc4b27cc7-1dd0si095mnk8/final/css/styles.css",
     "upload-html:prod": "aws s3 cp packages/web/instructions.html s3://prod-rooms-storagestack-uploadsbucketc4b27cc7-e79ae8vhvrvc/final/instructions.html",
