@@ -56,6 +56,9 @@ jobs:
             pnpm typecheck
             popd
           done
+        
+      - name: Deploy
+        run: pnpm run deploy
 
       - name: Run tests
         run: pnpm test:run
