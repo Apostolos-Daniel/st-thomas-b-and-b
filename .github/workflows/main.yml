@@ -8,6 +8,8 @@ on:
 jobs:
   setup_and_tests:
     runs-on: ubuntu-latest
+    env:
+      SST_STAGE: test
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
