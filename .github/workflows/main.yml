@@ -43,8 +43,8 @@ jobs:
             popd
           done
 
-      # - name: Run tests
-      #   run: pnpm test:run
+      - name: Run tests
+        run: pnpm test:run
 
       - name: Deploy
         run: pnpm run deploy
