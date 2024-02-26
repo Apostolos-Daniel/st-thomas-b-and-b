@@ -31,6 +31,9 @@ jobs:
           run_install: |
             - recursive: true
               args: [--no-frozen-lockfile]
+        
+      - name: Types
+        run: npx sst types
               
       - name: Compile
         run: |
