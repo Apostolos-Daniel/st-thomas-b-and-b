@@ -2,6 +2,7 @@ import { SSTConfig } from "sst";
 import { StorageStack } from "./stacks/StorageStack";
 import { ApiStack } from "./stacks/ApiStack";
 import { CronJobStack } from "./stacks/CronJobsStack";
+import { WebStack } from "./stacks/WebStack";
 
 // 
 export default {
@@ -19,9 +20,10 @@ export default {
       nodejs: {
         install: ["dd-trace", "datadog-lambda-js"],
       },
+      runtime: "nodejs18.x",
     });
 
-    app.stack(StorageStack).stack(CronJobStack).stack(ApiStack);
+    app.stack(StorageStack).stack(CronJobStack).stack(ApiStack).stack(WebStack);
 
     await app.finish();
   }

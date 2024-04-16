@@ -58,3 +58,15 @@ it("outputs the API endpoint", () => {
     }
   });
 });
+
+it('Lambda functions run against nodejs16.x', () => {
+  const lambdas = template.findResources('AWS::Lambda::Function');
+
+  template.resourcePropertiesCountIs(
+    'AWS::Lambda::Function',
+    {
+      Runtime: 'nodejs16.x',
+    },
+    Object.keys(lambdas).length, // ignore the CustomResourceHandler & busRetrierFunction lambda implicitly created by SST
+  );
+});
