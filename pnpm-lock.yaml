@@ -26,6 +26,9 @@ importers:
       datadog-cdk-constructs-v2:
         specifier: ^1.9.0
         version: 1.9.0(@aws-cdk/aws-lambda-python-alpha@2.101.1-alpha.0)(aws-cdk-lib@2.102.0)(constructs@10.2.69)
+      husky:
+        specifier: ^9.0.11
+        version: 9.0.11
       sst:
         specifier: ^2.30.2
         version: 2.30.2
@@ -103,7 +106,7 @@ importers:
         version: 18.2.25
       sst:
         specifier: ^2.41.4
-        version: 2.41.4(@aws-sdk/credential-provider-node@3.515.0)(@types/react@18.2.79)
+        version: 2.41.4(@aws-sdk/credential-provider-node@3.554.0)(@types/react@18.2.79)
       typescript:
         specifier: ^5
         version: 5.2.2
@@ -1690,6 +1693,56 @@ packages:
       '@aws-crypto/sha256-js': 3.0.0
       '@aws-sdk/core': 3.513.0
       '@aws-sdk/credential-provider-node': 3.515.0
+      '@aws-sdk/middleware-host-header': 3.515.0
+      '@aws-sdk/middleware-logger': 3.515.0
+      '@aws-sdk/middleware-recursion-detection': 3.515.0
+      '@aws-sdk/middleware-user-agent': 3.515.0
+      '@aws-sdk/region-config-resolver': 3.515.0
+      '@aws-sdk/types': 3.515.0
+      '@aws-sdk/util-endpoints': 3.515.0
+      '@aws-sdk/util-user-agent-browser': 3.515.0
+      '@aws-sdk/util-user-agent-node': 3.515.0
+      '@smithy/config-resolver': 2.1.1
+      '@smithy/core': 1.3.2
+      '@smithy/fetch-http-handler': 2.4.1
+      '@smithy/hash-node': 2.1.1
+      '@smithy/invalid-dependency': 2.1.1
+      '@smithy/middleware-content-length': 2.1.1
+      '@smithy/middleware-endpoint': 2.4.1
+      '@smithy/middleware-retry': 2.1.1
+      '@smithy/middleware-serde': 2.1.1
+      '@smithy/middleware-stack': 2.1.1
+      '@smithy/node-config-provider': 2.2.1
+      '@smithy/node-http-handler': 2.3.1
+      '@smithy/protocol-http': 3.1.1
+      '@smithy/smithy-client': 2.3.1
+      '@smithy/types': 2.9.1
+      '@smithy/url-parser': 2.1.1
+      '@smithy/util-base64': 2.1.1
+      '@smithy/util-body-length-browser': 2.1.1
+      '@smithy/util-body-length-node': 2.2.1
+      '@smithy/util-defaults-mode-browser': 2.1.1
+      '@smithy/util-defaults-mode-node': 2.2.0
+      '@smithy/util-endpoints': 1.1.1
+      '@smithy/util-middleware': 2.1.1
+      '@smithy/util-retry': 2.1.1
+      '@smithy/util-utf8': 2.1.1
+      fast-xml-parser: 4.2.5
+      tslib: 2.6.2
+    transitivePeerDependencies:
+      - aws-crt
+    dev: true
+
+  /@aws-sdk/client-sts@3.515.0(@aws-sdk/credential-provider-node@3.554.0):
+    resolution: {integrity: sha512-ScYuvaIDgip3atOJIA1FU2n0gJkEdveu1KrrCPathoUCV5zpK8qQmO/n+Fj/7hKFxeKdFbB+4W4CsJWYH94nlg==}
+    engines: {node: '>=14.0.0'}
+    peerDependencies:
+      '@aws-sdk/credential-provider-node': ^3.515.0
+    dependencies:
+      '@aws-crypto/sha256-browser': 3.0.0
+      '@aws-crypto/sha256-js': 3.0.0
+      '@aws-sdk/core': 3.513.0
+      '@aws-sdk/credential-provider-node': 3.554.0
       '@aws-sdk/middleware-host-header': 3.515.0
       '@aws-sdk/middleware-logger': 3.515.0
       '@aws-sdk/middleware-recursion-detection': 3.515.0
@@ -6812,6 +6865,12 @@ packages:
       toidentifier: 1.0.1
     dev: true
 
+  /husky@9.0.11:
+    resolution: {integrity: sha512-AB6lFlbwwyIqMdHYhwPe+kjOC3Oc5P3nThEoW/AaO2BX3vJDjWPFxYLxokUZOo6RNX20He3AaT8sESs9NJcmEw==}
+    engines: {node: '>=18'}
+    hasBin: true
+    dev: true
+
   /iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
     engines: {node: '>=0.10.0'}
@@ -8166,7 +8225,7 @@ packages:
       - utf-8-validate
     dev: true
 
-  /sst@2.41.4(@aws-sdk/credential-provider-node@3.515.0)(@types/react@18.2.79):
+  /sst@2.41.4(@aws-sdk/credential-provider-node@3.554.0)(@types/react@18.2.79):
     resolution: {integrity: sha512-a1o14VXlWWEQDI5izfv03Yo60Ne7JGm+j5agMiv9JrNMr0Ap+y9dTETGgrwPPpEb4EVFFIQnEFmyO1bIL7Bsdg==}
     hasBin: true
     peerDependencies:
@@ -8190,7 +8249,7 @@ packages:
       '@aws-sdk/client-rds-data': 3.554.0
       '@aws-sdk/client-s3': 3.515.0
       '@aws-sdk/client-ssm': 3.554.0
-      '@aws-sdk/client-sts': 3.515.0(@aws-sdk/credential-provider-node@3.515.0)
+      '@aws-sdk/client-sts': 3.515.0(@aws-sdk/credential-provider-node@3.554.0)
       '@aws-sdk/config-resolver': 3.374.0
       '@aws-sdk/credential-providers': 3.554.0
       '@aws-sdk/middleware-retry': 3.374.0
