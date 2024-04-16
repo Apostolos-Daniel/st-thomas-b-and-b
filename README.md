@@ -7,6 +7,8 @@ https://sst.dev/chapters/what-does-this-guide-cover.html
 
 https://pnpm.io/
 
+test
+
 ### Create a new project
 
 ```bash
