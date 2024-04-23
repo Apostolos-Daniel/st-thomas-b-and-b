@@ -18,6 +18,9 @@ beforeAll(async () => {
   // Create the Storage stack
   app.stack(storageStackContext.StorageStack);
 
+  // Wait for resources to finalize
+  await app.finish();
+
   // Create the API stack
   app.stack(apiStackContext.ApiStack);
 
