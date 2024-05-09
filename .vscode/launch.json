@@ -2,14 +2,34 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Debug SST Start",
+      "name": "Debug tests",
+      "request": "launch",
+      "runtimeArgs": [
+        "test:run"
+      ],
+      "runtimeExecutable": "pnpm",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    },
+    {
+      "name": "Debug SST Dev",
       "type": "node",
       "request": "launch",
       "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/sst",
-      "runtimeArgs": ["start", "--increase-timeout"],
+      "runtimeArgs": [
+        "dev",
+        "--increase-timeout"
+      ],
       "console": "integratedTerminal",
-      "skipFiles": ["<node_internals>/**"],
-      "env": {}
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "env": {
+        "AWS_PROFILE": "personal"
+      },
+      "preLaunchTask": "login-with-AWS",
     }
   ]
 }

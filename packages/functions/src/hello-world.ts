@@ -1,6 +1,8 @@
-import { APIGatewayProxyEvent } from "aws-lambda";
+import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
 
-export async function main(event: APIGatewayProxyEvent) {
+// export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+export const main = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+//export async function main(event: APIGatewayProxyEvent) {
   const htmlContent = `
     <html>
       <head><title>Page Title</title></head>
@@ -17,3 +19,20 @@ export async function main(event: APIGatewayProxyEvent) {
     body: htmlContent,
   };
 }
+
+
+type Person = {
+  name: string;
+  age: number;
+}
+
+const personF = (person: Person) => {
+  return person;
+};
+
+personF({ name: "John", age: 30 });
+
+const person = {
+  name: "John",
+  age: 30
+} as Person;
