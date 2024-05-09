@@ -1,5 +1,11 @@
 #!/usr/bin/env sh
 . "$(dirname -- "$0")/_/husky.sh"
 
+export NODE_OPTIONS='--max-old-space-size=4096'
+
+. ./.husky/login-script.sh
+pnpm install
+
+
 pnpm test
 pnpm build
