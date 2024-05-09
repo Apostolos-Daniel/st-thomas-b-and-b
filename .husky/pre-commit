@@ -7,5 +7,5 @@ export NODE_OPTIONS='--max-old-space-size=4096'
 pnpm install
 
 
-pnpm test
+pnpm test:run
 pnpm build
