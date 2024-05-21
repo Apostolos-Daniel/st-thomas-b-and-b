@@ -50,7 +50,7 @@ jobs:
         run: npx sst types
 
       - name: Compile
-        run: pmpm typecheck
+        run: pnpm typecheck
         
       - name: Deploy
         run: pnpm run deploy
