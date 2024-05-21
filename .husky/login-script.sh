@@ -4,8 +4,8 @@ if [ -f .env ]; then
     source .env
     echo "Reading .env file to get AWS_PROFILE variable"
 else
-    echo "No .env file found, setting default AWS_PROFILE to 'ephemeral-delivery-enablement'"
-    export AWS_PROFILE="personal"
+    echo "No .env file found, setting default AWS_PROFILE to 'stbnb'"
+    export AWS_PROFILE="stbnb"
 fi
 # Check if session is valid by listing S3 buckets
 if aws s3 ls --profile $AWS_PROFILE >/dev/null 2>&1; then
