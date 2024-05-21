@@ -50,12 +50,7 @@ jobs:
         run: npx sst types
 
       - name: Compile
-        run: |
-          for d in packages/*/ ; do
-            pushd "$d"
-            pnpm typecheck
-            popd
-          done
+        run: pmpm typecheck
         
       - name: Deploy
         run: pnpm run deploy
